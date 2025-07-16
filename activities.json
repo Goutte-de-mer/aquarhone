@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Balade en kayak matinale",
+    "description": "Découvrez les rives du Rhône au lever du soleil avec un guide expérimenté",
+    "type": "kayak",
+    "location": "Lyon - Presqu'île",
+    "duration": 120,
+    "price": 35,
+    "remainingSeats": 8
+  },
+  {
+    "name": "Paddle yoga sur l'eau",
+    "description": "Séance de yoga relaxante sur paddle board pour tous niveaux",
+    "type": "paddle",
+    "location": "Vienne - Quai de Riondet",
+    "duration": 90,
+    "price": 42,
+    "remainingSeats": 6
+  },
+  {
+    "name": "Escapade en canoë familiale",
+    "description": "Parcours adapté aux familles avec enfants dès 6 ans",
+    "type": "canoë",
+    "location": "Tournon-sur-Rhône",
+    "duration": 180,
+    "price": 28,
+    "remainingSeats": 12
+  },
+  {
+    "name": "Navigation libre bateau électrique",
+    "description": "Pilotez votre propre bateau électrique sans permis requis",
+    "type": "bateau sans permis",
+    "location": "Condrieu - Port de plaisance",
+    "duration": 240,
+    "price": 85,
+    "remainingSeats": 3
+  },
+  {
+    "name": "Croisière apéro coucher de soleil",
+    "description": "Détente garantie avec boissons et tapas inclus",
+    "type": "croisière détente",
+    "location": "Valence - Pont du Rhône",
+    "duration": 150,
+    "price": 68,
+    "remainingSeats": 15
+  },
+  {
+    "name": "Initiation kayak débutant",
+    "description": "Première approche du kayak avec matériel et coaching inclus",
+    "type": "kayak",
+    "location": "Givors - Base nautique",
+    "duration": 60,
+    "price": 22,
+    "remainingSeats": 10
+  },
+  {
+    "name": "Paddle fitness aquatique",
+    "description": "Entraînement sportif sur paddle avec exercices de renforcement",
+    "type": "paddle",
+    "location": "Arles - Quai de la Roquette",
+    "duration": 75,
+    "price": 38,
+    "remainingSeats": 4
+  },
+  {
+    "name": "Exploration en canoë nature",
+    "description": "Découverte de la faune et flore du Rhône avec guide naturaliste",
+    "type": "canoë",
+    "location": "Avignon - Île de la Barthelasse",
+    "duration": 210,
+    "price": 45,
+    "remainingSeats": 7
+  }
+]
