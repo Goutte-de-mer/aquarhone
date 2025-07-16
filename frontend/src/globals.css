@@ -2,7 +2,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-black: #515151;
+  --color-c-black: #515151;
+  --color-c-teal: #218c9a;
+  --color-c-darkteal: #197983;
+  --color-c-beige: #faf6f0;
 
   /* FONTS */
   --font-body: "Quicksand", sans-serif;
@@ -10,7 +13,7 @@
 }
 
 body {
-  @apply font-body bg-[#f6f6f6] text-black;
+  @apply font-body bg-c-beige text-c-black;
 }
 
 h1 {
