@@ -4,13 +4,14 @@ const { registerUser, login, logout } = require("../controller/authController");
 const validateRegister = require("../middlewares/validateRegister");
 const validateLogin = require("../middlewares/validateLogin");
 const authenticateToken = require("../middlewares/authenticateToken");
+const { registerUserToActivity } = require("../controller/userController");
 const User = require("../db/models/User");
 
 // Register a new user
-router.post("/api/register", validateRegister, registerUser);
+router.post("/register", validateRegister, registerUser);
 
 // Get user profile
-router.get("/api/me", authenticateToken, async (req, res) => {
+router.get("/me", authenticateToken, async (req, res) => {
   const user = await User.findById(req.user.id).select(
     "firstName lastName email role"
   );
@@ -20,9 +21,16 @@ router.get("/api/me", authenticateToken, async (req, res) => {
 });
 
 // Login user
-router.post("/api/login", validateLogin, login);
+router.post("/login", validateLogin, login);
 
 // Logout user
-router.get("/api/logout", logout);
+router.get("/logout", logout);
+
+// Sign up for activity
+router.post(
+  "/activities/:activityId/register",
+  authenticateToken,
+  registerUserToActivity
+);
 
 module.exports = router;
