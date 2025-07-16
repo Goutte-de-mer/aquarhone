@@ -1,5 +1,6 @@
 "use server";
 
+import { setCookieFromResponse } from "@/utils/cookies";
 export async function loginUser(formData) {
   try {
     const email = formData.get("email");
@@ -13,26 +14,32 @@ export async function loginUser(formData) {
       };
     }
 
-    const response = await fetch(`${process.env.API_URL}/users/api/login`, {
+    const response = await fetch(`${process.env.API_URL}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     });
+
     const data = await response.json();
-    if (!response.ok) {
+
+    if (response.ok) {
+      await setCookieFromResponse(response);
+
       return {
-        success: false,
-        message: data.message || "Erreur lors de la connexion",
+        success: true,
+        user: data.user,
       };
     }
+
     return {
-      success: true,
-      user: data.user,
+      success: false,
+      message: data.message || "Erreur lors de la connexion",
     };
   } catch (error) {
     console.log("Erreur lors de la connexion : ", error);
+
     return {
       success: false,
       message: "Erreur de connexion au serveur",

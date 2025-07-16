@@ -1,4 +1,5 @@
 "use server";
+import { setCookieFromResponse } from "@/utils/cookies";
 
 export async function registerUser(formData) {
   try {
@@ -15,23 +16,29 @@ export async function registerUser(formData) {
       };
     }
 
-    const response = await fetch(`${process.env.API_URL}/users/api/register`, {
+    const response = await fetch(`${process.env.API_URL}/users/register`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ firstName, lastName, email, password }),
     });
+
     const data = await response.json();
-    if (!response.ok) {
+
+    if (response.ok) {
+      await setCookieFromResponse(response);
+
       return {
-        success: false,
-        message: data.message || "Erreur lors de l'inscription",
+        success: true,
+        user: data.user,
       };
     }
+
     return {
-      success: true,
-      user: data.user,
+      success: false,
+      message: data.message || "Erreur lors de l'inscription",
     };
   } catch (error) {
     console.log("Erreur lors de l\'inscription :", error);
