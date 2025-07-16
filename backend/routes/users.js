@@ -13,7 +13,7 @@ router.post("/register", validateRegister, registerUser);
 // Get user profile
 router.get("/me", authenticateToken, async (req, res) => {
   const user = await User.findById(req.user.id).select(
-    "firstName lastName email role"
+    "firstName lastName email role activities"
   );
   if (!user)
     return res.status(404).json({ message: "Utilisateur introuvable" });
